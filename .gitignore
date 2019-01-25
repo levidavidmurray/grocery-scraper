@@ -1,0 +1,5 @@
+.vscode/
+venv/
+save-on-data/
+util/config.ini
+*__pycache__/
