@@ -10,7 +10,7 @@ class ParseCategories:
     all_sub_categories = []
     new_categories = {}
     category_directory_rename = {}
-    
+
     def __init__(self):
         print('[Save-On Scraper] Parsing Save-On Data JSON')
 
