@@ -26,7 +26,7 @@ class ParseCategories:
         i = 0
         x = 0
 
-        #TODO Explain this shit
+        # TODO Explain this shit
         for sub_cat in sub_cat_arr:
             new_sub_cat_arr.append({"id": sub_cat["Id"], "name": sub_cat["Name"], 'parent_ids': parent_ids})
             self.sub_cat_id_map[sub_cat['Id']] = sub_cat['Name']

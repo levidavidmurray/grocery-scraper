@@ -134,8 +134,7 @@ class SaveOnScraper:
                                                                                            product_category)
 
                         data = self.print_data(self._headers, 1, url)
-                        # page_numbers = self.get_page_numbers(data)
-                        page_numbers = 1
+                        page_numbers = self.get_page_numbers(data)
 
                         if page_numbers > 1:
                             for item in self.print_data(self._headers, page_numbers, url):
@@ -191,17 +190,6 @@ class SaveOnScraper:
             return '{0}m {1}s'.format(time_minutes, time_seconds)
         else:
             return '0m {0}s'.format(time_seconds)
-
-    @staticmethod
-    def print_progress(items_completed, progress_multiple):
-        if items_completed == round(progress_multiple):
-            print("25% DONE...")
-        if items_completed == round(progress_multiple * 2):
-            print("50% DONE...")
-        if items_completed == round(progress_multiple * 3):
-            print("75% DONE...")
-        if items_completed == round(progress_multiple * 4):
-            print("BUILD COMPLETE!")
 
     def get_auth_key(self, fetch_auth_url):
         print("{0}Generating Auth Key...".format(self.log_prefix))
