@@ -115,8 +115,4 @@ class ParseCategories:
             end_data.append(new_data)
             self.clear_static()
 
-        # Generate sub category rename map
-        with open('../rename_map.json', 'w') as outfile:
-            json.dump(self.category_directory_rename, outfile)
-
         return end_data, self.category_directory_rename
