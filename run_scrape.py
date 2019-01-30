@@ -15,6 +15,15 @@ from util.parse_categories import ParseCategories
 
 class SaveOnScraper:
 
+    user_id = 'd1f2c2de-9677-449b-a3ff-0c04bd374664'
+
+    item_properties = ["Brand", "Name", "Category", "CurrentPrice", "RegularPrice", "Size",
+                       "CurrentUnitPrice", "Description", "Sku", "Sale"]
+
+    item_property_map = {"Brand": "brand", "Name": "name", "Category": "category", "CurrentPrice": "current_price",
+                         "RegularPrice": "regular_price", "Size": "size", "CurrentUnitPrice": "current_unit_price",
+                         "Description": "description", "Sku": "sku", "Sale": "sale"}
+
     auth_key_len = 0
     item_query_quantity = 0
     num_of_cats = 0
@@ -136,6 +145,9 @@ class SaveOnScraper:
                         data = self.print_data(self._headers, 1, url)
                         page_numbers = self.get_page_numbers(data)
 
+                        # Set page_numbers to 1 for low data set testing
+                        # page_numbers = 1
+
                         if page_numbers > 1:
                             for item in self.print_data(self._headers, page_numbers, url):
                                 data["Items"].append(item)
@@ -236,15 +248,6 @@ class SaveOnScraper:
 
         except requests.HTTPError:
             self.get_auth_key(self.auth_link)
-
-    user_id = 'd1f2c2de-9677-449b-a3ff-0c04bd374664'
-
-    item_properties = ["Brand", "Name", "Category", "CurrentPrice", "RegularPrice", "Size",
-                       "CurrentUnitPrice", "Description", "Sku", "Sale"]
-
-    item_property_map = {"Brand": "brand", "Name": "name", "Category": "category", "CurrentPrice": "current_price",
-                         "RegularPrice": "regular_price", "Size": "size", "CurrentUnitPrice": "current_unit_price",
-                         "Description": "description", "Sku": "sku", "Sale": "sale"}
 
 
 if __name__ == '__main__':
